@@ -59,7 +59,7 @@ workspace = Workspace.create(name = workspace_name,
 from azureml.core.compute import AksCompute, ComputeTarget
 from azureml.core.compute_target import ComputeTargetException
 
-aks_name = 'myaks'
+aks_name = 'aksprod'
 
 try:
   aks_target = AksCompute(workspace, name=aks_name)
@@ -69,8 +69,8 @@ except ComputeTargetException:
 
   # AKS configuration
   prov_config = AksCompute.provisioning_configuration(
-    agent_count=3,
-    vm_size="Standard_B4ms"
+    agent_count=2,
+    vm_size="Standard_DS2_v2"
   )
 
   # Create the cluster
